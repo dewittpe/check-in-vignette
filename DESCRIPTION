@@ -1,0 +1,15 @@
+Package: civ
+Title: MWE for devtools::check in a vignette
+Version: 0.0.1
+Authors@R: person("Peter", "DeWitt", email = "me@place.org", role = c("aut", "cre"))
+Description: It appears that if devtools::check is in a vignette that R CMD
+    check will pass but R CMD check --as-cran will fail.  This package is a
+    minimal working example of the issue.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.5.0)
+Suggests:
+    knitr,
+VignetteBuilder: knitr
