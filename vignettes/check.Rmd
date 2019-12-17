@@ -1,0 +1,35 @@
+---
+title: "devtools::check in a vignette"
+author: "Peter DeWitt"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+vignette: >
+  %\VignetteIndexEntry{check-in-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Let's build a package in a temporary directory.
+```{r}
+tmpdir <- tempdir()
+apkg_path <- paste(tmpdir, "apkg", sep = "/")
+
+options(usethis.description = list(License = "file LICENSE"))
+
+devtools::create(path = apkg_path, open = FALSE)
+cat("Not a real license, just an example", file = paste0(apkg_path, "/LICENSE"))
+```
+
+Check the package:
+
+```{r}
+check <- devtools::check(pkg = apkg_path, quiet = TRUE, cran = FALSE)
+check
+```
+
