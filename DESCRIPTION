@@ -11,5 +11,7 @@ LazyData: true
 Depends:
     R (>= 3.5.0)
 Suggests:
+    devtools,
     knitr,
+    usethis
 VignetteBuilder: knitr
